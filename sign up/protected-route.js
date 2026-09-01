@@ -1,0 +1,1 @@
+(function () { const target = document.body.dataset.target || 'dashboard'; if (localStorage.getItem('nirikshanDemoSession') !== 'active') { location.replace('../login/'); return; } location.replace('../dashboard/#' + target); })();
