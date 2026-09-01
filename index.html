@@ -10,8 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="extras.css" />
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="login-extra.css" />
 </head>
 <body>
+  <div id="login-gate" class="login-gate">
+    <section class="login-showcase"><a class="brand" href="index.html"><span class="brand-mark">N</span><span>NIRIKSHAN <b>AI</b><small>Predict. Monitor. Act.</small></span></a><div><p class="eyebrow">SIH 2026 · SIH26103</p><h1>Infrastructure intelligence for timely action.</h1><p>Monitor project progress, identify early risks, and make better-informed monitoring decisions.</p><div class="login-points"><span>✓ Portfolio risk visibility</span><span>✓ Early-warning insights</span><span>✓ Explainable demo signals</span></div></div><small>Independent student project · Not an official government website</small></section>
+    <section class="login-panel"><form id="login-form" class="login-card" novalidate><p class="eyebrow">WELCOME BACK</p><h2>Sign in to NIRIKSHAN AI</h2><p>Access the infrastructure-monitoring demonstration dashboard.</p><div class="demo-notice"><b>Demo access:</b> No real user authentication or server connection is used.</div><label>Email address<input id="login-email" type="email" placeholder="name@example.com" required /></label><label>Password<input id="login-password" type="password" placeholder="Enter your password" required minlength="8" /></label><p id="login-error" class="form-error" role="alert"></p><button class="signup-button" type="submit">Sign in to dashboard</button><p class="login-new">New to the demo? <a href="signup.html">Create a demo account</a></p></form></section>
+  </div>
   <aside class="sidebar">
     <a class="brand" href="#dashboard" aria-label="NIRIKSHAN AI home"><span class="brand-mark">N</span><span>NIRIKSHAN <b>AI</b><small>Predict. Monitor. Act.</small></span></a>
     <nav id="main-nav" aria-label="Main navigation">
@@ -46,6 +52,19 @@
     <section id="about" class="page"><article class="about-card"><span class="assistant-icon">N</span><p class="eyebrow">SMART INDIA HACKATHON 2026</p><h2>NIRIKSHAN AI</h2><p class="tagline">Predict. Monitor. Act.</p><p>NIRIKSHAN AI is a student concept for a web-based integrated infrastructure project-monitoring platform. It helps demonstrate how monitoring teams could identify potential cost, schedule, and implementation risks early.</p><div class="future-grid"><div><h3>Current demo</h3><p>Responsive UI, sample project data, interactive filters, early warnings, explainable risk factors, and rule-based assistant responses.</p></div><div><h3>Future integration</h3><p>Python · FastAPI · PostgreSQL · Pandas · Scikit-learn · XGBoost · SHAP</p></div></div><p class="disclaimer">This is an independent student SIH project prototype. It is not an official government website and does not use official government logos or real PAIMANA data.</p></article></section>
   </main>
   <script src="app.js"></script>
+  <script>
+    const gate = document.getElementById('login-gate');
+    if (location.hash) gate.hidden = true;
+    document.getElementById('login-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget, error = document.getElementById('login-error');
+      if (!form.checkValidity()) { error.textContent = 'Enter a valid email address and a password with at least 8 characters.'; return; }
+      localStorage.setItem('nirikshanDemoSession', 'active');
+      gate.hidden = true;
+      location.hash = 'dashboard';
+    });
+  </script>
 </body>
 </html>
+
 
