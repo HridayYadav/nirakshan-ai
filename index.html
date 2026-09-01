@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NIRIKSHAN AI — student demo for infrastructure project monitoring." />
+  <title>NIRIKSHAN AI | Project Monitoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#dashboard" aria-label="NIRIKSHAN AI home"><span class="brand-mark">N</span><span>NIRIKSHAN <b>AI</b><small>Predict. Monitor. Act.</small></span></a>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#dashboard" data-page="dashboard"><span>▦</span>Dashboard</a>
+      <a class="nav-link" href="#projects" data-page="projects"><span>▤</span>Projects</a>
+      <a class="nav-link" href="#project-details" data-page="project-details"><span>◫</span>Project Details</a>
+      <a class="nav-link" href="#warnings" data-page="warnings"><span>⚠</span>Risk &amp; Early Warnings</a>
+      <a class="nav-link" href="#analytics" data-page="analytics"><span>◔</span>Analytics</a>
+      <a class="nav-link" href="#assistant" data-page="assistant"><span>✦</span>AI Assistant</a>
+      <a class="nav-link" href="#about" data-page="about"><span>ⓘ</span>About</a>
+    </nav>
+    <div class="sidebar-note"><b>DEMO ENVIRONMENT</b><br />Sample data only — not official project data.</div>
+  </aside>
+
+  <main>
+    <header class="topbar"><button id="menu-btn" class="menu-btn" aria-label="Open menu">☰</button><div><p class="eyebrow">SMART INDIA HACKATHON 2026 · SIH26103</p><h1 id="page-title">Dashboard</h1></div><div class="user-badge"><span>MO</span><div><b>Monitoring Officer</b><small>Demo account</small></div></div></header>
+
+    <section id="dashboard" class="page active">
+      <div class="notice"><span>●</span> <b>Demo data notice:</b> All projects, scores, and explanations on this website are fictional sample data for an SIH student demonstration.</div>
+      <div class="section-heading"><div><h2>Portfolio overview</h2><p>Monitor early risk signals across infrastructure projects.</p></div><span class="date-chip">Updated: Demo dataset</span></div>
+      <div id="metric-grid" class="metric-grid"></div>
+      <div class="dashboard-grid"><article class="card chart-card"><div class="card-title"><div><h3>Project Risk Overview</h3><p>Distribution of active demo projects</p></div><span class="legend"><i class="high"></i>High <i class="medium"></i>Medium <i class="low"></i>Low</span></div><div id="risk-overview" class="risk-overview"></div></article><article class="card warnings-preview"><div class="card-title"><div><h3>Recent Early Warnings</h3><p>Projects that may need attention</p></div><a href="#warnings">View all →</a></div><div id="recent-warnings"></div></article></div>
+      <article class="card table-card"><div class="card-title"><div><h3>Project risk register</h3><p>Click a row to inspect a project.</p></div><a href="#projects">All projects →</a></div><div class="table-wrap"><table><thead><tr><th>Project Name</th><th>Sector</th><th>Ministry</th><th>Progress</th><th>Cost Status</th><th>Time Status</th><th>Risk Score</th><th>Risk Level</th></tr></thead><tbody id="dashboard-projects"></tbody></table></div></article>
+    </section>
+
+    <section id="projects" class="page"><div class="section-heading"><div><h2>Projects</h2><p>Search, filter, and review the demo project portfolio.</p></div></div><div class="card filters"><input id="search" type="search" placeholder="Search project name, sector, or ministry…" /><select id="sector-filter"><option value="">All sectors</option></select><select id="ministry-filter"><option value="">All ministries</option></select><select id="location-filter"><option value="">All locations</option></select><select id="risk-filter"><option value="">All risk levels</option><option>High</option><option>Medium</option><option>Low</option></select><select id="status-filter"><option value="">All project statuses</option></select></div><p id="project-count" class="result-count"></p><article class="card table-card"><div class="table-wrap"><table><thead><tr><th>Project Name</th><th>Sector</th><th>Ministry</th><th>Location</th><th>Original Cost</th><th>Revised Cost</th><th>Expenditure</th><th>Physical Progress</th><th>Risk Score</th><th>Risk Level</th><th></th></tr></thead><tbody id="projects-table"></tbody></table></div></article></section>
+
+    <section id="project-details" class="page"><div id="detail-content"></div></section>
+    <section id="warnings" class="page"><div class="section-heading"><div><h2>Risk &amp; Early Warnings</h2><p>Early signals derived from the sample project data.</p></div></div><div id="warning-list" class="warning-list"></div></section>
+    <section id="analytics" class="page"><div class="section-heading"><div><h2>Analytics</h2><p>Interactive visual summaries of the demo portfolio.</p></div></div><div class="analytics-grid"><article class="card"><h3>Risk by Sector</h3><div id="sector-chart" class="bar-chart"></div></article><article class="card"><h3>Projects by Risk Level</h3><div id="level-chart" class="donut-chart"></div></article><article class="card"><h3>Cost vs Expenditure</h3><div id="cost-chart" class="compare-chart"></div></article><article class="card"><h3>Expected vs Actual Progress</h3><div id="progress-chart" class="compare-chart"></div></article><article class="card wide-card"><h3>Project Delay Trends</h3><div id="delay-chart" class="trend-chart"></div></article></div></section>
+    <section id="assistant" class="page"><div class="assistant-layout"><article class="assistant-intro"><span class="assistant-icon">✦</span><p class="eyebrow">DEMO DATA ASSISTANT</p><h2>NIRIKSHAN AI Assistant</h2><p>Ask about the sample project dataset. This is a rule-based demonstration, not a live LLM or government data system.</p><div id="suggestions" class="suggestions"></div></article><article class="card chat"><div id="chat-messages" class="chat-messages"><div class="message bot">Hello! I can answer questions about the <b>demo project dataset</b>. Try one of the suggested questions.</div></div><form id="chat-form"><input id="chat-input" autocomplete="off" placeholder="Ask about demo projects…" /><button type="submit">Send</button></form></article></div></section>
+    <section id="about" class="page"><article class="about-card"><span class="assistant-icon">N</span><p class="eyebrow">SMART INDIA HACKATHON 2026</p><h2>NIRIKSHAN AI</h2><p class="tagline">Predict. Monitor. Act.</p><p>NIRIKSHAN AI is a student concept for a web-based integrated infrastructure project-monitoring platform. It helps demonstrate how monitoring teams could identify potential cost, schedule, and implementation risks early.</p><div class="future-grid"><div><h3>Current demo</h3><p>Responsive UI, sample project data, interactive filters, early warnings, explainable risk factors, and rule-based assistant responses.</p></div><div><h3>Future integration</h3><p>Python · FastAPI · PostgreSQL · Pandas · Scikit-learn · XGBoost · SHAP</p></div></div><p class="disclaimer">This is an independent student SIH project prototype. It is not an official government website and does not use official government logos or real PAIMANA data.</p></article></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
